@@ -13,7 +13,7 @@
         <div class="calculator">
             <form>
                 <div class="display">
-                    <input type="text" name="display">
+                    <input id="input" type="text" name="display">
                 </div>
                 <div>
                     <input type="button" value="AC" onclick="display.value = ''" class="operator">
@@ -53,6 +53,19 @@
             </form>
         </div>
     </div>
+
+    <script>
+        const log = document.getElementById("input");
+
+        log.addEventListener("keydown", logKey);
+
+        function logKey(e) {
+            if(e.code=='='){
+               display.value = eval(display.value)
+            }
+            log.textContent += ` ${e.code}`;
+        }
+    </script>
 </body>
 
 </html>
